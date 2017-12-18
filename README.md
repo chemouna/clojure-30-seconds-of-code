@@ -1,15 +1,14 @@
 # clojure-30-seconds-of-code
 
-A Clojure library designed to ... well, that part is up to you.
+### Lists
+* [`Palindrome`](#palindrome)
 
-## Usage
+### palindrome
+returns true if a list is a palindrome and false otherwise
 
-FIXME
+```clojure 
+(defn palindrome?
+  [coll]
+  (= coll (reverse coll)))
+```
 
-## License
-
-Copyright © 2017 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
-# clojure-30-seconds-of-code
