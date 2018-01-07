@@ -6,6 +6,7 @@
 * [`gcd`](#gcd)
 * [`Euler's totient function phi(m)`](#euler-totient-function)
 * [`Happy Numbers`](#happy-numbers)
+* [`Repeated Squaring`](#repeated-squaring)
 
 ### Lists
 * [`Palindrome`](#palindrome)
@@ -61,6 +62,21 @@ Those numbers for which this process ends in 1 are happy numbers, while those th
        (conj seen n)))))
 ```
 
+### Repeated Squaring
+Repeated squaring, or repeated doubling is an algorithm that computes integer powers of a number quickly. 
+The general problem is to compute x^y for an arbitrary integer y. The naive method, doing y multiplications of x, is very slow. It can be sped up by repeatedly squaring x until the current power of x exceeds y.
+
+```clojure
+;; fast exponentiation using repeated squaring technique
+(defn fast-exp-iter [b n a]
+  (cond (= n 0) a
+        (even? n) (fast-exp-iter (* b b) (/ n 2) a)
+        :else (fast-exp-iter b (- n 1) (* a b))))
+
+(defn fast-exp [b n]
+  (fast-exp-iter b n 1))
+```
+
 [⬆ back to top](#table-of-contents)
 ## Lists
 
@@ -72,5 +88,6 @@ returns true if a list is a palindrome and false otherwise
   [coll]
   (= coll (reverse coll)))
 ```
+
 
 
